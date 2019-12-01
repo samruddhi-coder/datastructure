@@ -7,7 +7,7 @@ struct node
 	
 	int roll_no;
 	char name[20];
-	char add[20];
+	char br[20];
  struct node *next;
  }*head=NULL;
  
@@ -20,8 +20,8 @@ struct node
 	cin>>new_node->roll_no;	
 	cout<<"\n Enter Name:";
 	cin>>new_node->name;
-	cout<<"\n Enter Address:";
-	cin>>new_node->add;
+	cout<<"\n Enter Branch:";
+	cin>>new_node->br;
 	new_node->next=NULL;
  	
  	if(head==NULL)
@@ -52,12 +52,12 @@ void display()
 		cout<<"\n Student Data:";
 	
 		cout<<"\n=====================================";
-		cout<<"\n Roll No.\t Name \t Address";
+		cout<<"\n Roll No.\t Name \t Branch";
 		cout<<"\n=====================================";
 	while(temp!=NULL)
 	{
 		
-		cout<<"\n\t"<< temp->roll_no<<"\t"<<temp->name<<"\t"<<temp->add;
+		cout<<"\n\t"<< temp->roll_no<<"\t"<<temp->name<<"\t"<<temp->br;
 		temp=temp->next;
 		
 	}
@@ -72,10 +72,10 @@ void insert_beg()
 	new_node=new node;
 	cout<<"Enter Roll no: ";
 	cin>>new_node->roll_no;
-	cout<<"\n Enter Name:";
+	cout<<"\nEnter Name:";
 	cin>>new_node->name;
-	cout<<"\n Enter Address:";
-	cin>>new_node->add;
+	cout<<"\nEnter Branch:";
+	cin>>new_node->br;
 	new_node->next=NULL;	
 	new_node->next=head;
 	head=new_node;
@@ -91,10 +91,10 @@ void insert_pos()
 	new_node=new node;
 	cout<<"Enter Roll no: ";
 	cin>>new_node->roll_no;
-	cout<<"\n Enter Name:";
+	cout<<"\nEnter Name:";
 	cin>>new_node->name;
-	cout<<"\n Enter Address:";
-	cin>>new_node->add;
+	cout<<"\nEnter Branch:";
+	cin>>new_node->br;
 	new_node->next=NULL;	
 	cout<<"Enter Position: ";
 	cin>>pos;
@@ -115,10 +115,10 @@ void insert_end()
 	new_node=new node;
 	cout<<"Enter Roll no: ";
 	cin>>new_node->roll_no;
-	cout<<"\n Enter Name:";
+	cout<<"\nEnter Name:";
 	cin>>new_node->name;
-	cout<<"\n Enter Address:";
-	cin>>new_node->add;
+	cout<<"\nEnter Branch:";
+	cin>>new_node->br;
 	new_node->next=NULL;
 	temp=head;
 	while(temp->next!=NULL)
@@ -180,7 +180,7 @@ void update()
 	int key;
 	struct node *temp;
 	temp=head;
-	cout<<"Enter rollno to be changed: ";
+	cout<<"Enter rollno of which data to be changed: ";
 	cin>>key;
 	while(temp->roll_no!=key)
 	{
@@ -193,9 +193,13 @@ void update()
 	}
 	else
 	{
-		cout<<"Enter New Data";
+		cout<<"--Enter New Data--\n";
+		cout<<"Enter name:\n";
+		cin>>temp->name;
+		cout<<"Enter branch:\n\n";
+		cin>>temp->br;
 		
-		cin>>temp->roll_no>>temp->name>>temp->add;
+		
 		cout<<"successfully modified\n";
 
 		
@@ -254,7 +258,7 @@ void search()
 		cout<<"8.delete node at end"<<endl;
 		cout<<"9.update node"<<endl;
 		cout<<"10.search a node"<<endl;
-		cout<<"enter choice";
+		cout<<"Enter Choice: ";
 		cin>>choice;
 		switch(choice)
 
